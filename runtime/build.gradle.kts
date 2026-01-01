@@ -37,6 +37,7 @@ dependencies {
 
     // Testing
     testImplementation(libs.spring.boot.starter.test)
+    testImplementation(platform(libs.testcontainers.bom))
     testImplementation(libs.testcontainers)
     testImplementation(libs.testcontainers.junit.jupiter)
     testImplementation(libs.testcontainers.postgresql)
@@ -47,6 +48,7 @@ dependencies {
 dependencyManagement {
     imports {
         mavenBom("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
+        mavenBom("org.testcontainers:testcontainers-bom:${project.property("testcontainersVersion")}")
     }
 }
 
